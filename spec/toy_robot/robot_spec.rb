@@ -51,6 +51,11 @@ context "when facing north" do
     subject.move
     expect(subject.position_y).to eq(1)
   end 
+
+  it "turns left to face west" do
+    subject.turn_left
+    expect(subject.direction).to eq("WEST")
+  end
 end
 
 context "when facing south" do
@@ -60,6 +65,12 @@ context "when facing south" do
     subject.move
     expect(subject.position_y).to eq(-1)
   end
+
+  it "turns left to face east" do
+    subject.turn_left
+    expect(subject.direction).to eq("EAST")
+  end
+
 end
 
 context "when facing east" do
@@ -68,6 +79,11 @@ context "when facing east" do
   it "moves east" do
     subject.move
     expect(subject.position_x).to eq(1)
+  end
+
+  it "turns left to face north" do
+    subject.turn_left
+    expect(subject.direction).to eq("NORTH")
   end
 end
 
@@ -78,5 +94,10 @@ context "when facing west" do
   it "moves west" do
     subject.move
     expect(subject.position_x).to eq(-1)
+  end
+
+  it "turns left to face south" do
+    subject.turn_left
+    expect(subject.direction).to eq("SOUTH")
   end
 end
