@@ -4,8 +4,8 @@ RSpec.describe ToyRobot::Robot do
   subject { ToyRobot::Robot.new(0) }
   
   it "moves 1 spaces east" do
-    1.times { subject.move_east } 
-    expect(subject.position_x).to eq(1)
+    2.times { subject.move_east } 
+    expect(subject.position_x).to eq(2)
   end 
 
   it "moves 4 spaces east" do
@@ -14,8 +14,8 @@ RSpec.describe ToyRobot::Robot do
   end
 
   it "moves 1 spaces west" do
-    1.times { subject.move_west }
-    expect(subject.position_x).to eq(-1)
+    2.times { subject.move_west }
+    expect(subject.position_x).to eq(-2)
   end
 
   it "moves 3 spaces west" do
@@ -24,8 +24,8 @@ RSpec.describe ToyRobot::Robot do
   end
 
   it "moves 1 spaces north" do
-    1.times { subject.move_north }
-    expect(subject.position_y).to eq(1)
+    2.times { subject.move_north }
+    expect(subject.position_y).to eq(2)
   end
 
   it "moves 3 spaces north" do
@@ -34,13 +34,49 @@ RSpec.describe ToyRobot::Robot do
   end
 
   it "moves 1 spaces south" do
-    1.times { subject.move_south }
-    expect(subject.position_y).to eq(-1)
+    2.times { subject.move_south }
+    expect(subject.position_y).to eq(-2)
   end
 
   it "moves 4 spaces south" do
     3.times { subject.move_south }
     expect(subject.position_y).to eq(-3)
-  end
+  end  
+end
 
+context "when facing north" do
+  subject { ToyRobot::Robot.new(0, 0, "NORTH") }
+  
+  it "moves north" do
+    subject.move
+    expect(subject.position_y).to eq(1)
+  end 
+end
+
+context "when facing south" do
+  subject { ToyRobot::Robot.new(0, 0, "SOUTH") }
+
+  it "moves south" do
+    subject.move
+    expect(subject.position_y).to eq(-1)
+  end
+end
+
+context "when facing east" do
+  subject { ToyRobot::Robot.new(0, 0, "EAST") }
+
+  it "moves east" do
+    subject.move
+    expect(subject.position_x).to eq(1)
+  end
+end
+
+
+context "when facing west" do
+  subject { ToyRobot::Robot.new(0, 0, "WEST") }
+
+  it "moves west" do
+    subject.move
+    expect(subject.position_x).to eq(-1)
+  end
 end
