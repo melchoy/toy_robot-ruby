@@ -46,7 +46,6 @@ module ToyRobot
       }
     end
 
-
     private
     
     def turn(turn_direction)
