@@ -38,6 +38,14 @@ module ToyRobot
       turn(:right)
     end
 
+    def report
+      {
+        position_x: position_x,
+        position_y: position_y,
+        direction: direction
+      }
+    end
+
 
     private
     

@@ -120,3 +120,14 @@ context "when facing west" do
     expect(subject.direction).to eq("NORTH")
   end
 end
+
+context "#report" do
+  subject { ToyRobot::Robot.new(5, 4, "EAST") }
+  it "provides the current location and direction of the robot" do 
+    expect(subject.report).to eq({
+      position_x: 5,
+      position_y: 4,
+      direction: "EAST"
+    })
+  end 
+end
