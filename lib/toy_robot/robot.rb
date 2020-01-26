@@ -2,28 +2,28 @@ module ToyRobot
   class Robot 
     DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
 
-    attr_reader :position_x, :position_y, :direction
+    attr_reader :posx, :posy, :direction
     
-    def initialize(position_x = 0, position_y = 0, direction = "NORTH")
-      @position_x = position_x
-      @position_y = position_y
+    def initialize(posx = 0, posy = 0, direction = "NORTH")
+      @posx = posx
+      @posy = posy
       @direction = direction
     end
 
     def move_east 
-      @position_x += 1     
+      @posx += 1     
     end 
     
     def move_west
-      @position_x -= 1
+      @posx -= 1
     end
 
     def move_north
-      @position_y += 1
+      @posy += 1
     end
     
     def move_south
-      @position_y -= 1
+      @posy -= 1
     end
 
     def move
@@ -40,8 +40,8 @@ module ToyRobot
 
     def report
       {
-        position_x: position_x,
-        position_y: position_y,
+        posx: posx,
+        posy: posy,
         direction: direction
       }
     end

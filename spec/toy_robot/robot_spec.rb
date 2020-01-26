@@ -5,42 +5,42 @@ RSpec.describe ToyRobot::Robot do
   
   it "moves 1 spaces east" do
     2.times { subject.move_east } 
-    expect(subject.position_x).to eq(2)
+    expect(subject.posx).to eq(2)
   end 
 
   it "moves 4 spaces east" do
     3.times { subject.move_east } 
-   expect(subject.position_x).to eq(3)
+   expect(subject.posx).to eq(3)
   end
 
   it "moves 1 spaces west" do
     2.times { subject.move_west }
-    expect(subject.position_x).to eq(-2)
+    expect(subject.posx).to eq(-2)
   end
 
   it "moves 3 spaces west" do
     3.times { subject.move_west }
-    expect(subject.position_x).to eq(-3)
+    expect(subject.posx).to eq(-3)
   end
 
   it "moves 1 spaces north" do
     2.times { subject.move_north }
-    expect(subject.position_y).to eq(2)
+    expect(subject.posy).to eq(2)
   end
 
   it "moves 3 spaces north" do
     3.times { subject.move_north }
-    expect(subject.position_y).to eq(3)
+    expect(subject.posy).to eq(3)
   end
 
   it "moves 1 spaces south" do
     2.times { subject.move_south }
-    expect(subject.position_y).to eq(-2)
+    expect(subject.posy).to eq(-2)
   end
 
   it "moves 4 spaces south" do
     3.times { subject.move_south }
-    expect(subject.position_y).to eq(-3)
+    expect(subject.posy).to eq(-3)
   end  
 end
 
@@ -49,7 +49,7 @@ context "when facing north" do
   
   it "moves north" do
     subject.move
-    expect(subject.position_y).to eq(1)
+    expect(subject.posy).to eq(1)
   end 
 
   it "turns left to face west" do
@@ -68,7 +68,7 @@ context "when facing south" do
 
   it "moves south" do
     subject.move
-    expect(subject.position_y).to eq(-1)
+    expect(subject.posy).to eq(-1)
   end
 
   it "turns left to face east" do
@@ -87,7 +87,7 @@ context "when facing east" do
 
   it "moves east" do
     subject.move
-    expect(subject.position_x).to eq(1)
+    expect(subject.posx).to eq(1)
   end
 
   it "turns left to face north" do
@@ -107,7 +107,7 @@ context "when facing west" do
 
   it "moves west" do
     subject.move
-    expect(subject.position_x).to eq(-1)
+    expect(subject.posx).to eq(-1)
   end
 
   it "turns left to face south" do
@@ -125,8 +125,8 @@ context "#report" do
   subject { ToyRobot::Robot.new(5, 4, "EAST") }
   it "provides the current location and direction of the robot" do 
     expect(subject.report).to eq({
-      position_x: 5,
-      position_y: 4,
+      posx: 5,
+      posy: 4,
       direction: "EAST"
     })
   end 
